@@ -33,7 +33,7 @@ def main():
             inp = input("Maybe Enter: ")
             if inp == 'hint':
                 display_hint()
-                display_game()
+                display_game(wrong_guess_count)
                 
         guess = str(input(f"Guess the {word_name[0:-1]} name or Get hanged: ").lower())
 
