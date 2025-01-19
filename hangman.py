@@ -26,14 +26,16 @@ def display_hint():
 
 def main():
     wrong_guess_count, attempts = 0, 0
+    hint_shown = False
     display_game(wrong_guess_count)
     while True:
-        if wrong_guess_count == len(wrong_guess_results) - 2:
+        if wrong_guess_count == 5 and not hint_shown:
             print('-> Secret msg -> \'hint\' -> to view all')
-            inp = input("Maybe Enter: ")
+            inp = input("Enter here: ")
             if inp == 'hint':
                 display_hint()
                 display_game(wrong_guess_count)
+            hint_shown = True
                 
         guess = str(input(f"Guess the {word_name[0:-1]} name or Get hanged: ").lower())
 
@@ -68,7 +70,7 @@ def main():
             break
 
 def introduction():
-    print(f'Welcome to \'Learn the {word_name} with Hangman.\'')
+    print(f'Welcome to \'Learn the {word_name[0:-1]} with Hangman.\'')
     sleep(1)
     print('Let\'s Begin!')
     sleep(1.5)
